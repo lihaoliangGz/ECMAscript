@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript 基础</title>
+</head>
+<body>
+
+
+<button type="button" onclick="typeTest()">测试变量类型</button>
+<br/>
+<br/>
+<button type="button" onclick="numberTest()">测试number类型</button>
+<br/>
+<br/>
+<button type="button" onclick="stringTest()">测试String类型</button>
+<br/>
+<br/>
+<button type="button" onclick="typeTransition()">测试类型转换</button>
+<br/>
+<br/>
+<button type="button" onclick="typeNumber()">测试转换未数字</button>
+<br/>
+<br/>
+<button type="button" onclick="test()">测试类型强制转换</button>
+
+
+<script>
+
+    //原始类型
+    function typeTest() {
+        var un1;
+        var test = "string";
+        var test2=true;
+        var un=undefined;
+        console.log(typeof test);
+        console.log(typeof 86);
+        console.log(typeof test2);
+        console.log(typeof un);
+        console.log(typeof null);//object
+        console.log(typeof un1);//object
+        console.log(un1==undefined);//object
+
+
+
+    }
+
+    function numberTest() {
+        console.log(isFinite(1223));//判断一个数是否是有穷的 true
+        console.log(isFinite("string"));//判断一个数是否是有穷的 false
+        console.log(isFinite(Infinity));//判断一个数是否是有穷的 false
+
+        console.log("------------------------");
+        console.log(isNaN("bleu")); //true
+        console.log(isNaN(896)); //false
+    }
+
+    //string类型
+    function stringTest() {
+        //String 类型还包括几种字符字面量
+        console.log("\077");
+        console.log("\x77");
+        console.log("\u7777");
+    }
+
+    //类型转换,转字符串
+    function typeTransition() {
+        var num1=011;
+        var num2=0xff;
+        console.log(num1.toString());//默认模式,返回十进制表示
+        console.log(num2.toString());
+        console.log(num2.toString(8));//基模式
+    }
+
+    //转换为数字parseInt() parseFloat();只有对 String 类型调用这些方法，它们才能正确运行；对其他类型返回的都是 NaN。
+    function typeNumber(){
+        var str = "123";
+        console.log(parseInt("123"));
+        console.log(parseInt("12345abd"));
+        console.log(parseInt("0xff"));
+        console.log(parseInt("33.5"));
+        console.log(parseInt("red"));
+
+        console.log('-------------------------');
+        console.log(parseInt("10" ,2));
+        console.log(parseInt("10" ,8));
+        console.log(parseInt("10" ,10));
+        console.log(parseInt("10" ,16));
+
+        console.log('-----------------');
+        console.log(parseFloat("1234ag"));
+        console.log(parseFloat("11.2"));
+        console.log(parseFloat("22.22.22"));
+        console.log(parseFloat("0x77"));
+    }
+
+
+    function test() {
+        console.log("Number:");
+        console.log(Number('1234'));
+        console.log(Number(true));
+        console.log(Number(false));
+        console.log(Number(undefined)); //NaN
+        console.log(Number(null)); //0
+        console.log(Number("1.2.3")); //NaN
+
+        console.log("\nString:");
+        console.log(String(true)); //true
+        console.log(String(null)); //null
+
+        console.log("\nBoolean:");
+        console.log(Boolean('1234')); //true
+        console.log(Boolean(0)); //false
+        console.log(Boolean("")); //false
+        console.log(Boolean(false)); //false
+        console.log(Boolean(true)); //true
+        console.log(Boolean(new Object())); //true
+    }
+
+</script>
+</body>
+
+</html>

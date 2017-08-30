@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>等性运算符</title>
+</head>
+<body>
+
+<button type="button" onclick="test()">关系运算符</button>
+<br/><br/>
+<button type="button" onclick="equert()">等值运算符</button>
+<br/><br/>
+<button type="button" onclick="evaluate1()">赋值运算符</button>
+
+<script>
+
+    function test() {
+        console.log('25' < 3);
+        console.log('25' < '3');
+        console.log('a' < 3);
+        console.log("\n----------------\n");
+    }
+
+    function equert() {
+        //等号和非等号,为确定两个运算数是否相等，这两个运算符都会进行类型转换
+        console.log("25" == 25);
+        console.log(null == undefined);
+
+        //全等号和非全等号,只是它们在检查相等性前，不执行类型转换
+        //全等号，只有在无需类型转换运算数就相等的情况下，才返回 true。
+    }
+
+    function evaluate1() {
+        var num=3;
+        num +=2;
+        console.log(num);
+        num*=2;
+        console.log(num);
+        num/=2;
+        console.log(num);
+        num%=2;
+        console.log(num);
+        num-=2;
+        console.log(num);
+        num<<=2;
+        console.log(num);
+        var num2=3,num3=4,num4=5;
+        console.log(num2);
+        console.log(num3);
+        console.log(num4);
+
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 语句</title>
+</head>
+<body>
+
+<button type="button" onclick="test1()">迭代</button>
+<br/><br/>
+<button type="button" onclick="test2()">break语句</button>
+<br/><br/>
+<button type="button" onclick="test3(1,2,3,4,5)">break语句</button>
+<br/><br/>
+<button type="button" onclick="test4()">Function对象</button>
+<br/><br/>
+<button type="button" onclick="thisTest()">this用法</button>
+
+<script>
+    function test1() {
+        var i=1;
+        do {
+            console.log(i);
+            i++;
+        } while (i<5)
+
+        for (abt in window) {
+            console.log(abt);
+        }
+
+        //标签
+        start:a=1;
+        
+    }
+    
+    function test2() {
+        var num=0;
+        for (var i=0;i<10;i++) {
+            if (i%5==0) {
+                break;
+            }
+            num++;
+        }
+        console.log(num);
+
+        var num1=0;
+        for (var i=0;i<10;i++) {
+            if (i%5==0) {
+                continue;
+            }
+            num1++;
+        }
+        console.log(num1);
+    }
+
+    function test3(a,b,c) {
+        length=arguments.length;
+        console.log(length);
+        console.log(arguments[4]);
+    }
+    
+    function test4() {
+        //sayHi(1, 2);
+        function sayHi(sName, sMessage) {
+            alert("Hello " + sName + sMessage);
+        }
+
+        var sayHi2
+            =
+            new Function("sName", "sMessage", "alert(\"Hello \" + sName + sMessage);");
+        sayHi2("",'');
+
+        //console.log(sayHi2.toString());
+
+    }
+
+    function sayHello(){
+        alert("Hello");
+    }
+
+    sayHello.sayHi=function () {
+        alert("Hi");
+    }
+
+    sayHello();
+    sayHello.sayHi();
+
+    //this用法
+    function thisTest() {
+        var o = new Object();
+        o.color = 'red';
+        o.showColor=function () {
+            alert(this.color);
+        }
+        o.showColor();
+    }
+
+
+
+
+</script>
+</body>
+</html>

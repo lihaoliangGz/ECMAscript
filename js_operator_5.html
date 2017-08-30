@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype </title>
+</head>
+<body>
+
+<button type="button" onclick="test1()">测试</button>
+<button type="button" onclick="test2()">prototype测试</button>
+
+<script>
+
+    function test1() {
+        function Car() {
+
+        }
+
+        Car.prototype.name = "bmw";
+        Car.prototype.weith = "2吨";
+        Car.prototype.color = "red";
+        Car.prototype.showColor=function () {
+            alert(this.color);
+        }
+
+        var car1 = new Car();
+        console.log(car1.name);
+        car1.showColor();
+    }
+    
+    function test2() {
+        function Animal() {
+            
+        }
+
+        Animal.prototype.nickname = "动物名";
+        Animal.prototype.weight = 10;
+
+        function Dog() {
+
+        }
+
+        Dog.prototype = new Animal();
+        var dog = new Dog();
+        dog.weight=20;
+        console.log(dog.nickname);
+        console.log(dog.weight);
+
+    }
+    
+
+
+</script>
+
+</body>
+</html>

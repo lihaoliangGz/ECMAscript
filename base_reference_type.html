@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引用类型</title>
+</head>
+<body>
+
+<button type="button" onclick="objectTest()">object对象</button>
+<br/><br/>
+
+<button type="button" onclick="booleanTest()">Boolean对象</button>
+<br/><br/>
+
+<button type="button" onclick="numberTest()">Number对象</button>
+<br/><br/>
+
+<button type="button" onclick="stringTest()">String对象</button>
+<br/><br/>
+
+<script>
+
+    function objectTest() {
+        var o = new Object();
+        var hasOwn=o.hasOwnProperty('our');//判断对象是否有某个特定的属性。必须用字符串指定该属性
+        document.write(hasOwn);
+        document.write("<br/>");
+        var isType=o.isPrototypeOf(12);//判断该对象是否为另一个对象的原型
+        document.write(isType);
+        document.write("<br/>");
+
+        var value=o.valueOf();
+        var str=o.toString();
+        document.write(value);
+        document.write(str);
+    }
+
+    function booleanTest() {
+        var b = new Boolean(false);
+        console.log(b.valueOf());
+
+        var result=b && true;
+        console.log(result);
+        var bb=false;
+        console.log(bb && true);
+
+    }
+
+    function numberTest() {
+        var num = new Number(86);
+        console.log(num.valueOf());
+        console.log(num.toString());
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        console.log(Number.NEGATIVE_INFINITY);
+        console.log(Number.POSITIVE_INFINITY);
+
+        //oFixed()返回的是具有指定位数小数的数字的字符串表示
+        console.log(num.toFixed(2));//86.00
+
+        //返回的是用科学计数法表示的数字的字符串形式
+        console.log(num.toExponential(1));//8.6e+1
+
+    }
+    
+    function stringTest() {
+        var str = new String("hello world");
+        console.log(str);
+        console.log(str.toString());
+        console.log(str.valueOf());
+
+        console.log("\n"+"字符长度:"+str.length);
+        console.log("charAt():"+str.charAt(1));//返回对单个字符
+        console.log("charCodeAt():"+str.charCodeAt(1));//返回单个字符代码
+
+        var result=str.concat(" Hello","World");
+        console.log("\n"+str.toString());
+        console.log(result);
+
+        console.log("\n"+str.indexOf('a'));//返回子串在另一字符串的位置,没有返回-1
+        console.log("\n"+str.lastIndexOf('d'));//
+
+
+
+    }
+
+
+</script>
+</body>
+</html>
+
+
